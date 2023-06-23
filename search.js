@@ -1,5 +1,5 @@
 const xhr = new XMLHttpRequest();
-xhr.open('GET', 'steam_data.json', true);
+xhr.open('GET', '/steam_data.json', true);
 xhr.onload = function() {
   if (xhr.status === 200) {
     const data = JSON.parse(xhr.responseText);
@@ -11,7 +11,6 @@ xhr.onload = function() {
     let selectedAppId; // Глобальная переменная для сохранения appid
 
     searchInput.addEventListener('input', () => {
-      console.log("in!");
       const userInput = searchInput.value.toLowerCase();
       const filteredSuggestions = suggestions.filter(suggestion => suggestion.name.toLowerCase().startsWith(userInput));
 
