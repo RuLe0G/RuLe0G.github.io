@@ -7,20 +7,25 @@ xhr.onload = function() {
     
     const searchInput = document.getElementById('search-input');
     const suggestionsList = document.getElementById('suggestions-list');
-    let selectedAppId;
+
+    let selectedAppId; // Глобальная переменная для сохранения appid
 
     searchInput.addEventListener('input', () => {
+      console.log("in!");
       const userInput = searchInput.value.toLowerCase();
       const filteredSuggestions = suggestions.filter(suggestion => suggestion.name.toLowerCase().startsWith(userInput));
 
       suggestionsList.innerHTML = '';
+
+      // Ограничение на вывод первых 5 подсказок
+      const limitedSuggestions = filteredSuggestions.slice(0, 5);
 
       limitedSuggestions.forEach(suggestion => {
         const li = document.createElement('li');
         li.textContent = suggestion.name;
         li.addEventListener('click', () => {
           searchInput.value = suggestion.name;
-          selectedAppId = suggestion.appid;
+          selectedAppId = suggestion.appid; // Сохранение appid в глобальную переменную
           suggestionsList.innerHTML = '';
         });
         suggestionsList.appendChild(li);
@@ -55,5 +60,5 @@ searchButton.addEventListener('click', () => {
       firstInfoBlock.appendChild(description);
     }
   };
-  xhrH.send();
 });
+xhrH.send();
