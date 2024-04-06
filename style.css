@@ -2,7 +2,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100vh;	
+    background-color: #222;
+    color: lightgray;
 }
 
 .container {
@@ -17,9 +19,10 @@ body {
     display: flex;
     align-items: center;
     padding: 20px;
-    background-color: #f1f1f1;
+    background-color: #ABB2BF;
     border-radius: 8px;
     margin-bottom: 20px;
+	color: black;
 }
 
 .project-image {
